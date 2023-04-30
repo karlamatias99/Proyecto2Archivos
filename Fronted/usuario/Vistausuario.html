@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="stilos.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="usuario.html">Comprar</a></li>
+          <li><a href="../administrador/admin.html">Vender</a></li>
+          <li><a href="../Login/Login.html">Cerrar Sesion</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Productos -->
+      <div class="contenedorProductos">
+        <h2>Productos</h2> 
+        <div class="mostrarProductos" id="mostrarProductos"></div>
+      </div>
+      <div class="contenedor">
+        <!-- Añadir -->
+        <div class="añadir">
+          <h2>Añadir</h2>
+          <form action="" id="IngresoProductos">
+            <label>Nombre del producto</label>
+            <input type="text" id="productoAñadir" name="nombreDelProducto" />
+
+            <label>Descripcion del Producto</label>
+            <input
+              type="text"
+              id="descripcionAñadir"
+              name="descripcionDelProducto"
+            />
+
+            <label>Precio del producto</label>
+            <input type="number" id="PrecioAñadir" />
+
+            <label>Existencia</label>
+            <input type="number" id="existenciaAñadir" />
+
+            <label>Imagen</label>
+            <input type="String" id="ImagenAñadir" />
+
+            <input
+              class="button"
+              type="button"
+              id="botonAñadir"
+              value="Añadir"
+            />
+          </form>
+        </div>
+        <!-- Editar -->
+        <div class="editar">
+          <h2>Editar</h2>
+          <form id="form-editar-producto">
+            <input type="hidden" id="id-producto" name="id-producto" />
+
+            <label>Nombre del producto</label>
+            <input type="text" id="nombreEditar" name="nombreEditar" />
+
+            <label>Descripcion del producto</label>
+            <input
+              type="text"
+              id="descripcionEditar"
+              name="descripcionEditar"
+            />
+
+            <label>Precio del Producto</label>
+            <input type="number" id="precioEditar" name="precioEditar" />
+
+            <label>Existencia del producto</label>
+            <input
+              type="number"
+              id="existenciaEditar"
+              name="existenciaEditar"
+            />
+
+            <label>Imagen del Producto</label>
+            <input type="String" id="imagenEditar" name="imagenEditar" />
+
+            <input
+              class="button"
+              type="button"
+              id="botonEditar"
+              value="Editar"
+            />
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="Vistausuario.js"></script>
+  </body>
+</html>

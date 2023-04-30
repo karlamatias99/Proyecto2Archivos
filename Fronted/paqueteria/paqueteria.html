@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paqueteria</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="usuario.html">Ver Pedidos</a></li>
+          <li><a href="../administrador/admin.html">Ingresos</a></li>
+          <li><a href="../Login/Login.html">Cerrar Sesion</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Pedidos -->
+      <div class="contenedorPedidos">
+        <h2>Pedidos</h2>
+        <div class="mostrarPedidos" id="mostrarPedidos"></div>
+      </div>
+      <div class="contenedor">
+        <!-- Editar -->
+        <div class="editar">
+          <h2>Editar Pedido</h2>
+          <form id="form-editar-pedido">
+            <label>Codigo Pedido</label>
+            <input type="text" id="idPedido" name="idPedido" disabled="disabled" />
+
+            <label>Nombre del Usuario</label>
+            <input type="text" id="nombreUsuario" name="nombreUsuario" disabled="disabled"/>
+
+            <label>Direccion</label>
+            <input type="text" id="direccion" name="direccion" disabled="disabled"/>
+
+            <label>Telefono</label>
+            <input type="text" id="telefono" name="telefono" disabled="disabled"/>
+
+            <label>Total Compra</label>
+            <input type="text" id="totalCompra" name="totalCompra" disabled="disabled"/>
+
+
+            <label>Fecha Entrega</label>
+            <input type="date" id="fecha" name="fecha" min="2023-01-01" max="2023-12-31" />
+
+            
+            <fieldset>  
+              <legend>Estado del Pedido</legend>
+
+              <div>
+                <input type="radio" id="EnCurso" name="estado" value="EnCurso" />
+                <label for="EnCurso">En Curso</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="Completado"
+                  name="estado"
+                  value="Completado"
+                />
+                <label for="Completado">Completado</label>
+              </div>
+            </fieldset>
+            <input
+              class="button"
+              type="button"
+              id="botonEditar"
+              value="Editar"
+            />
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <script src="paqueteria.js"></script>
+  </body>
+</html>

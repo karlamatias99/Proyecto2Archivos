@@ -11,6 +11,7 @@ carrito.get('/VerCarrito', carritoController.getProductoCarrito);
 carrito.delete('/eliminarCarrito/:id', carritoController.deletetProducto);
 
 
+
 module.exports = carrito;
 
 

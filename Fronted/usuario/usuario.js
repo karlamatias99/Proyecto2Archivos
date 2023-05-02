@@ -67,19 +67,20 @@ window.addEventListener('load', async () => {
 
 //Comprar 
 function comprar(nombre, imagen, precio) {
-    const producto = { nombre, imagen, precio };
+    const productoCompra = { nombre, imagen, precio };
     fetch('http://localhost:3000/api/add', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(producto),
+        body: JSON.stringify(productoCompra),
     })
         .then(response => response.json())
         .then(data => {
             if (data) {
                 console.log('Producto insertado correctamente');
-                location.reload();
+                numero.classList.add("diseñoNumero");
+                numero.innerHTML = +numero.innerHTML + 1;
             } else {
                 console.error('Error al insertar producto');
             }
@@ -88,6 +89,34 @@ function comprar(nombre, imagen, precio) {
             console.error("Error al agregar el producto:", error);
         });
 };
+
+
+/*function comprar(nombre, imagen, precio) {
+    const  productosCompra = { nombre, imagen, precio };
+    lista = fetch('http://localhost:3000/api/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify( productosCompra),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                console.log('Producto insertado correctamente');
+               // location.reload();
+            } else {
+                console.error('Error al insertar producto');
+            }
+        })
+        .catch(error => {
+            console.error("Error al agregar el producto:", error);
+        });
+
+    numero.innerHTML = lista.length
+    numero.classList.add("diseñoNumero")
+    return lista
+};*/
 
 
 
@@ -171,7 +200,7 @@ x.addEventListener("click", function () {
     contenedorCompra.classList.add('none')
     contenedorCompra.classList.remove('contenedorCompra')
     informacionCompra.classList.remove('informacionCompra')
-    //mostrarElemtrosLista()
+    mostrarElemtrosLista()
 })
 
 

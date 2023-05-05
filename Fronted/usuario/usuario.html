@@ -34,6 +34,13 @@
         />
         <div id="numero"></div>
       </div>
+      <form
+        onsubmit="event.preventDefault(); buscarProducto();"
+        class="formulario-busqueda"
+      >
+        <input type="text" id="busqueda" />
+        <button type="submit" class="boton-busqueda">Buscar</button>
+      </form>
     </header>
 
     <main>
@@ -53,7 +60,7 @@
 
       <div class="productosCompra" id="productosCompra"></div>
       <div class="total" id="total"></div>
-
+      <button onclick="eliminarCarrito()">Vaciar Carrito</button>
       <button onclick="abrirVentana()">Ingresar Tarjeta Credito/Debito</button>
       <button onclick="abrirVentanaPedido()">Finalizar Compra</button>
     </div>

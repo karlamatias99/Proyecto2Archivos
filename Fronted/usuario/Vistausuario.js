@@ -162,6 +162,8 @@ function eliminarProducto(idProducto) {
         .catch(error => console.error(error));
 }
 
+
+
 /*Mostrar Registros de Productos*/
 function mostrarProductos(productos) {
     let mostraProductos = document.getElementById('mostrarProductos')

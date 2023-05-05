@@ -81,7 +81,18 @@ const MostrarProductosVenta = async (req, res) => {
     }
 };
 
+const buscarProductos = async (req, res) => {
+    const nombreProducto = req.query.nombreProducto;
+    const regex = new RegExp(nombreProducto, 'i');
 
+    try {
+        const productos = await Producto.find({ nombre: regex });
+        res.json(productos);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Error en el servidor');
+    }
+}
 
 
 module.exports = {
@@ -90,5 +101,6 @@ module.exports = {
     MostrarProductos: MostrarProductos,
     MostrarProductosVenta: MostrarProductosVenta,
     TraerDatos: TraerDatos,
-    EliminarProducto: EliminarProducto
+    EliminarProducto: EliminarProducto,
+    buscarProductos: buscarProductos
 }

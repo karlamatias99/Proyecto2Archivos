@@ -9,6 +9,7 @@ router.put('/editar', productoController.EditarProducto);
 router.get('/ver', productoController.MostrarProductos);
 router.get('/productos', productoController.MostrarProductosVenta);
 router.get('/producto/:id', productoController.TraerDatos);
+router.get('/buscar', productoController.buscarProductos);
 router.put('/editarProd/:id', productoController.EditarProducto);
 router.delete('/eliminarProd/:id', productoController.EliminarProducto);
 

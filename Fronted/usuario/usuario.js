@@ -159,6 +159,7 @@ function mostrarProductosCarrito() {
     let valortotal = 0;
     for (let i = 0; i < lista.length; i++) {
         productosCompra.innerHTML += `<div><div class="img">
+        
         <button onclick=eliminar(${i}) class="botonTrash"><img src=../imagenes/bote.png></button>
         <p>${lista[i].nombre}</p></div><p> Q${lista[i].precio}</p></div>`
         valortotal += parseInt(lista[i].precio)
@@ -194,6 +195,11 @@ function eliminar(indice) {
     if (lista.length == 0) {
         numero.classList.remove("diseñoNumero")
     }
+    mostrarProductosCarrito()
+}
+
+function eliminarCarrito() {
+    lista = [];
     mostrarProductosCarrito()
 }
 
@@ -289,6 +295,22 @@ function registrarPedido(evento) {
 
 }
 
+
+
+function buscarProducto() {
+    const input = document.getElementById('busqueda').value;
+    const url = `http://localhost:3000/api/buscar?nombreProducto=${input}`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            mostrarProductos(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('No se encontró el producto');
+        });
+}
 
 
 

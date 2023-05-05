@@ -4,44 +4,52 @@
     box-sizing: border-box;
     color: white;
 }
+
 body {
     font-family: 'Space Grotesk', sans-serif;
     background-color: #141C29;
     padding-top: 80px;
 }
-h1{
+
+h1 {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin: 30px 0px;
 }
+
 img {
     width: 320px;
     height: 340px;
     object-fit: cover;
     border-radius: 20px 20px 0px 0px;
 }
-header{
+
+header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:15%;
+    gap: 15%;
     height: 70px;
     top: 0;
     position: fixed;
     width: 100%;
 
 }
-.scroll{
+
+.scroll {
     background-color: aliceblue;
     box-shadow: .1rem .2rem .3rem #333;
 }
-.scroll img{
+
+.scroll img {
     filter: invert(15%);
-}           
-.scroll h1{
+}
+
+.scroll h1 {
     color: #141C29;
 }
-.carrito{
+
+.carrito {
     filter: invert(100%);
     width: 45px;
     height: auto;
@@ -49,44 +57,51 @@ header{
     top: 14px;
     cursor: pointer;
 }
-.contenedor{
+
+.contenedor {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
     margin-bottom: 20px;
 }
-.contenedor>div{
+
+.contenedor>div {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     background-color: #2D4263;
     border-radius: 20px;
 }
-.contenedor>div:hover{
+
+.contenedor>div:hover {
     background-color: #11294d;
 }
 
-.informacion{
+.informacion {
     height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap:15px;
+    gap: 15px;
 }
-.informacion>p:first-child{
+
+.informacion>p:first-child {
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     font-weight: 300;
 }
+
 .informacion .precio {
     font-size: 20px;
     font-weight: 500;
 }
-.informacion .precio span{
+
+.informacion .precio span {
     font-size: 17px;
     font-weight: 300;
 }
-.informacion button{
+
+.informacion button {
     background-color: #263143;
     width: 100px;
     height: 35px;
@@ -97,7 +112,8 @@ header{
     font-weight: 300;
     cursor: pointer;
 }
-.informacion input{
+
+.informacion input {
     background-color: #263143;
     width: 100px;
     height: 35px;
@@ -109,11 +125,11 @@ header{
     cursor: pointer;
 }
 
-.informacion button:hover{
+.informacion button:hover {
     background-color: #2D4263;
 }
 
-.infromacio button:active{
+.infromacio button:active {
     background-color: white;
     color: black;
 }
@@ -135,20 +151,20 @@ header{
     align-items: center;
 }
 
-.contenedorCompra{
+.contenedorCompra {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
     position: fixed;
-    top:0px;
+    top: 0px;
     background-color: rgba(51, 51, 51, 0.6);
-    flex-direction:column;
-    gap:35px;
+    flex-direction: column;
+    gap: 35px;
 }
 
-.informacionCompra{
+.informacionCompra {
     width: 500px;
     height: 500px;
     background-color: #2D4263;
@@ -159,14 +175,14 @@ header{
     position: fixed;
 }
 
-.informacionCompra h2{
+.informacionCompra h2 {
     font-weight: 300;
     margin: 50px 0px 0px 50px;
     font-size: 32px;
     width: 100%;
 }
 
-.x{
+.x {
     padding-top: 30px;
     padding-right: 30px;
     cursor: pointer;
@@ -174,7 +190,7 @@ header{
     color: white;
 }
 
-.productosCompra{
+.productosCompra {
     font-size: 17px;
     position: relative;
     z-index: 1;
@@ -187,7 +203,7 @@ header{
     margin-top: 50px;
 }
 
-.productosCompra > div {
+.productosCompra>div {
     margin: 0px 45px;
     padding: 20px 0px;
     width: auto;
@@ -196,32 +212,32 @@ header{
     justify-content: space-between;
 }
 
-.productosCompra::-webkit-scrollbar{
+.productosCompra::-webkit-scrollbar {
     width: 7px;
     background-color: #141C29;
     border-radius: 5px;
 }
 
-.productosCompra::-webkit-scrollbar-thumb{
-    background: white ;
+.productosCompra::-webkit-scrollbar-thumb {
+    background: white;
     border-radius: 3px;
 }
 
-.img{
+.img {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.productosCompra img{
+.productosCompra img {
     width: 25px;
     height: auto;
-    margin-right:10px;
-    border-bottom: none ;
+    margin-right: 10px;
+    border-bottom: none;
     cursor: pointer;
 }
 
-.total{
+.total {
     z-index: 1;
     display: flex;
     align-items: flex-start;
@@ -231,45 +247,111 @@ header{
     font-weight: 700;
 }
 
-.total span{
+.total span {
     font-weight: 300;
 }
 
-.contenedorCompra > button{
+.contenedorCompra>button {
     z-index: 1;
     background-color: #263143;
     width: 300px;
     height: 45px;
-    border-radius: 10px ;
+    border-radius: 10px;
     border: none;
 
     font-size: 17px;
     font-weight: 300;
 }
 
-.contenedorCompra > button:hover{
+.contenedorCompra>button:hover {
     background-color: white;
     color: black;
 }
 
 .none>div,
-.none button, 
-.none p{
+.none button,
+.none p {
     width: 0px;
     height: 0px;
     font-size: 0px;
     border: 0px;
 }
 
-.soldOut{
+.soldOut {
     background-color: red;
     padding: 7px 10px;
     border-radius: 10px;
 }
-.botonTrash{
+
+.botonTrash {
     background-color: rgba(0, 0, 0, 0);
-    border:none;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.ventana-emergente {
+    position: absolute;
+    z-index: 1;
+   right: 0;
+    top: 0;
+    width: 40%;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+.contenido-ventana {
+    background-color: #0b2868;
+    padding: 20px;
+    border: 1px solid #04115a;
+    color: black;
+
+}
+
+.contenido-ventana form input {
+    width: 100%;
+    margin-top: 40px;
+    padding: 10px;
+    border: none;
+    background: #F2F2F2;
+    font-size: 16px;
+    outline: none;
+}
+
+.contenido-ventana form button {
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: #627c94;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+.contenido-ventana button {
+    padding: 10px 40px;
+    margin-top: 40px;
+    border: none;
+    font-size: 14px;
+    background: #627c94;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+.contenido-ventana h2 {
+    font-weight: 300;
+    margin: 50px 0px 0px 50px;
+    font-size: 32px;
+    width: 100%;
+}
+
+.contenido-ventana input {
+    color: #000;
+    /* Establece el color de texto a negro */
 }

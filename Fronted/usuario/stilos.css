@@ -30,7 +30,7 @@ img {
     justify-content: space-between;
     align-items: flex-start;
     margin: 50px auto 45px auto;
-    width: 90%;
+    width: 800px;
     flex-wrap: wrap;
     gap: 40px;
 }
@@ -40,7 +40,7 @@ img {
     align-items: center;
     justify-content: flex-start;
     background-color: #2D4263;
-    height: 500px;
+    height: 600px;
     width: 500px;
     border-radius: 20px;
     flex-direction: column;
@@ -178,27 +178,37 @@ button {
     content: 'Este elemento no existe';
 }
 
-  
-  nav {
+
+nav {
     float: left;
-  }
-  
-  nav ul {
+}
+
+nav ul {
     list-style: none;
-    overflow: hidden; 
-  }
-  
-  nav ul li {
+    overflow: hidden;
+}
+
+nav ul li {
     float: left;
     font-family: Arial, sans-serif;
     font-size: 16px;
-  }
-  nav ul li a {
+}
+
+nav ul li a {
     display: block;
     padding: 10px;
     color: #fff;
     text-decoration: none;
-  }
-  nav ul li:hover {
+}
+
+nav ul li:hover {
     background: #eca023;
-  }
+}
+
+.submenu {
+    display: none;
+}
+
+.submenu-active {
+    display: block;
+}

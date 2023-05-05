@@ -56,17 +56,21 @@ form2.addEventListener('submit', async (event) => {
         if (response.ok) {
             const data = await response.json();
             const userRole = data.rol; // Aquí se obtiene el rol del usuariol;
+            localStorage.setItem('usuario', data.correo);
             console.log(userRole);
             if (userRole === 'Administrador') {
+
                 window.location.href = '../administrador/admin.html';
             } else if (userRole === 'Paqueteria') {
+
                 window.location.href = '../paqueteria/paqueteria.html';
             } else {
+
                 window.location.href = '../usuario/Vistausuario.html';
             }
         } else {
             console.error('Error en la respuesta', response);
-            alert('Error en la respuesta');
+            alert('Correo y/o contraseña incorrectos. Intente de nuevo');
         }
 
     } catch (error) {

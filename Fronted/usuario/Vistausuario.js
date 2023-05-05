@@ -1,5 +1,17 @@
 /*Listo los productos que estan ingresados, si los hay */
+
+
+
+const usernameListItem = document.getElementById('username-list-item');
+
+// Obtener el usuario almacenado en el localStorage
+const username = localStorage.getItem('usuario');
+
+// Asignar el usuario al elemento li
+usernameListItem.innerHTML = `<a href="#">${username}</a>`;
+console.log(username);
 ver();
+
 
 /*Agregar Producto para venta*/
 document.getElementById("botonAñadir").addEventListener("click", function (evento) {
@@ -12,12 +24,25 @@ document.getElementById("botonAñadir").addEventListener("click", function (even
     let existencia = document.getElementById('existenciaAñadir').value;
     let imagen = document.getElementById('ImagenAñadir').value;
 
+    var botonesDeRadio = document.getElementsByName("categoria");
+
+    //Obtengo el valor que el usuario seleccionara
+    var valorSeleccionado;
+    for (var i = 0; i < botonesDeRadio.length; i++) {
+        if (botonesDeRadio[i].checked) {
+            valorSeleccionado = botonesDeRadio[i].value;
+            break;
+        }
+    }
+
     const data = {
         nombre: nombre,
         descripcion: descripcion,
         precio: precio,
         existencia: existencia,
-        imagen: imagen
+        imagen: imagen,
+        categoria: valorSeleccionado,
+        nombreUsuario: username
 
     }
     fetch('http://localhost:3000/api/ingresar', {
@@ -75,12 +100,24 @@ document.getElementById("botonEditar").addEventListener("click", function (event
     const existenciaE = document.getElementById("existenciaEditar").value;
     const imagenE = document.getElementById("imagenEditar").value;
 
+    var botonesDeRadio = document.getElementsByName("categoria");
+
+    //Obtengo el valor que el usuario seleccionara
+    var valorSeleccionado;
+    for (var i = 0; i < botonesDeRadio.length; i++) {
+        if (botonesDeRadio[i].checked) {
+            valorSeleccionado = botonesDeRadio[i].value;
+            break;
+        }
+    }
     const data = {
         nombre: nombreE,
         descripcion: descripcionE,
         precio: precioE,
         existencia: existenciaE,
-        imagen: imagenE
+        imagen: imagenE,
+        categoria: valorSeleccionado,
+        nombreUsuario: username
 
     }
 
@@ -135,11 +172,12 @@ function mostrarProductos(productos) {
         mostraProductos.innerHTML +=
             `<div class="contenedorProductos">
               <img src="${element.imagen}">
-            
+            <br>
+            <br>
         <div class="informacion"><p>${element.nombre}</p><p class="precio">
         <span>${element.descripcion}</span></p><p class="precio">
         <span>Precio: Q ${element.precio}</span></p>
-         Existencia: ${element.existencia}<p></p></div><div>
+         Existencia: ${element.existencia}<p>${element.categoria}</p></div><div>
         <button onclick="obtenerProducto('${element._id}')"><i class="fas fa-edit"></i></button>
          <button onclick="eliminarProducto('${element._id}')">Eliminar</button></div></div>`
 
@@ -151,7 +189,7 @@ function ver() {
     window.onload = async () => {
 
         try {
-            const response = await fetch('http://localhost:3000/api/productos');
+            const response = await fetch(`http://localhost:3000/api/ver?nombreUsuario=${username}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

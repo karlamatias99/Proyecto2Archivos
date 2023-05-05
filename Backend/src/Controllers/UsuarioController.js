@@ -1,5 +1,6 @@
 const Usuario = require('../Models/Usuario');
 
+
 const IngresoUsuario = async (req, res) => {
     const insertar = new Usuario({
         nombre: req.body.nombre,
@@ -56,23 +57,27 @@ const EliminarUsuario = async (req, res) => {
 
 
 const LoginUsuario = async (req, res) => {
-    const { username, password, rol } = req.body;
+    const { correo, password, rol } = req.body;
 
     try {
         // Verifica las credenciales del usuario en la base de datos
-        const user = await Usuario.findOne({ username, password });
+        const user = await Usuario.findOne({ correo, password });
         if (!user) {
             res.status(401).json({ error: 'Credenciales incorrectas' });
         } else {
-            // Devuelve una respuesta con el rol del usuario
+            // Devuelve una respuesta con el rol y el usuario
             const userRole = user.rol;
-            res.json({ rol: userRole });
+            res.json({ correo: correo, rol: userRole });
         }
     } catch (error) {
         console.error('Error al consultar la base de datos', error);
         res.status(500).json({ error: 'Error al consultar la base de datos' });
     }
 };
+
+
+
+
 
 /*Mostrar Productos Ingresados*/
 const MostrarProductos = async (req, res) => {

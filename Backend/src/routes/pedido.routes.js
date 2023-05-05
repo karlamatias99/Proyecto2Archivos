@@ -4,7 +4,7 @@ const pedidoControllers = require('../Controllers/pedidosController');
 
 const router = express.Router();
 
-router.post('/ingresar', pedidoControllers.IngresoPedidos);
+router.post('/ingresarPedido', pedidoControllers.IngresoPedidos);
 router.put('/editar', pedidoControllers.EditarPedidos);
 router.get('/pedidos', pedidoControllers.MostrarPedidos);
 router.get('/pedido/:id', pedidoControllers.TraerDatos);

@@ -13,7 +13,18 @@ function obtenerPedido(idPedido) {
             document.getElementById("direccion").value = data.direccion;
             document.getElementById("telefono").value = data.telefono;
             document.getElementById("totalCompra").value = data.totalCompra;
-            document.getElementById("fecha").value = data.FechaEntrega;
+            document.getElementById("FechaGeneracion").value = data.FechaGeneracion;
+            document.getElementById("FechaEntrega").value = data.FechaEntrega;
+            document.getElementById("Tarjeta").value = data.Tarjeta;
+            document.getElementById("Estado").value = data.Estado;
+            /** usuarioPedido: String,
+    direccion: String,
+    telefono: Number,
+    totalcompra: String,
+    FechaGeneracion: Date,
+    FechaEntrega: Date,
+    Tarjeta: Number,
+    Estado: String */
 
         })
         .catch((error) => console.log(error));
@@ -108,9 +119,11 @@ function mostrarProductos(pedidos) {
         <span> Usuario: ${element.usuarioPedido}</span></p><p class="informacion">
         <span>Direccion: ${element.direccion}</span></p><p class="informacion">
         <span>Telefono: ${element.telefono}</span></p> <p class="precio">
-        <span>Total Compra: Q ${element.totalCompra}</span></p>
+        <span>Total Compra: Q ${element.totalcompra}</span></p>
         <p class="informacion">
-        <span>${element.FechaEntrega}</span></p>
+        <span>Fecha de Generacion:${element.FechaGeneracion}</span></p>
+        <p class="informacion">
+        <span>Fecha de Entrega: ${element.FechaEntrega}</span></p>
         <p class="informacion">
         <span>${element.Estado}</span></p></div><div>
         

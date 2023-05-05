@@ -8,7 +8,7 @@ const IngresoPedidos = async (req, res) => {
         totalcompra: req.body.totalcompra,
         FechaGeneracion: req.body.FechaGeneracion,
         FechaEntrega: req.body.FechaEntrega,
-        Estado: Estado.body.Estado
+        Estado: req.body.Estado
     });
 
     const RegistrarPedido = await insertar.save();

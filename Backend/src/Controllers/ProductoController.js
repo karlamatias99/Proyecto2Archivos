@@ -7,7 +7,8 @@ const IngresoProducto = async (req, res) => {
         precio: req.body.precio,
         existencia: req.body.existencia,
         imagen: req.body.imagen,
-
+        categoria: req.body.categoria,
+        nombreUsuario: req.body.nombreUsuario
     });
 
     const RegistrarProducto = await agregar.save();
@@ -29,9 +30,9 @@ const TraerDatos = async (req, res) => {
 const EditarProducto = async (req, res) => {
     try {
         const { id } = req.params;
-        const { nombre, descripcion, precio, existencia, imagen } = req.body;
+        const { nombre, descripcion, precio, existencia, imagen, categoria } = req.body;
 
-        const actualizar = await Producto.findByIdAndUpdate(id, { nombre, descripcion, precio, existencia, imagen }, { new: true });
+        const actualizar = await Producto.findByIdAndUpdate(id, { nombre, descripcion, precio, existencia, imagen, categoria }, { new: true });
 
         res.json(actualizar);
     } catch (error) {
@@ -59,6 +60,18 @@ const EliminarProducto = async (req, res) => {
 
 /*Mostrar Productos Ingresados*/
 const MostrarProductos = async (req, res) => {
+    const nombreUsuario = req.query.nombreUsuario;
+
+    try {
+        const productos = await Producto.find({ nombreUsuario });
+        res.json(productos);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Error en el servidor');
+    }
+};
+
+const MostrarProductosVenta = async (req, res) => {
     try {
         const productos = await Producto.find(); // Busca todos los productos en la base de datos
         res.json(productos); // Devuelve los productos como respuesta en formato JSON
@@ -69,10 +82,13 @@ const MostrarProductos = async (req, res) => {
 };
 
 
+
+
 module.exports = {
     IngresoProducto: IngresoProducto,
     EditarProducto: EditarProducto,
     MostrarProductos: MostrarProductos,
+    MostrarProductosVenta: MostrarProductosVenta,
     TraerDatos: TraerDatos,
     EliminarProducto: EliminarProducto
 }

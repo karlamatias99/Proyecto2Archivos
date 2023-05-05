@@ -6,7 +6,7 @@ const productoRoutes = require("./routes/producto.routes");
 const listaRoutes = require("./routes/lista.routes");
 const carritoRoutes = require("./routes/carrito.routes");
 const pedidoRoutes = require("./routes/pedido.routes");
-
+const tarjetaRoutes = require("./routes/tarjeta.routes");
 
 
 
@@ -40,6 +40,7 @@ start();
 
 
 app.use('/api', carritoRoutes);
+app.use('/api', tarjetaRoutes);
 app.use('/api', usuarioRoutes);
 app.use('/api', productoRoutes);
 app.use('/api', pedidoRoutes);

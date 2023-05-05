@@ -11,4 +11,5 @@ router.get('/usuario/:id', usuarioController.TraerDatos);
 router.put('/editar/:id', usuarioController.EditarUsuario);
 router.delete('/eliminar/:id', usuarioController.EliminarUsuario);
 
+
 module.exports = router;

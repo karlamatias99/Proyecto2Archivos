@@ -29,14 +29,20 @@
       rel="stylesheet"
     />
   </head>
-
+  <style>
+    .separado {
+      margin-left: auto;
+    }
+  </style>
   <body>
     <header>
       <nav>
         <ul>
           <li><a href="usuario.html">Comprar</a></li>
-          <li><a href="../administrador/admin.html">Vender</a></li>
           <li><a href="../Login/Login.html">Cerrar Sesion</a></li>
+          <li style="margin-left: 1000px" id="username-list-item">
+            <a href="#">Usuario</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -44,7 +50,6 @@
     <main>
       <!-- Productos -->
       <div class="contenedorProductos">
-        <h2>Productos</h2> 
         <div class="mostrarProductos" id="mostrarProductos"></div>
       </div>
       <div class="contenedor">
@@ -71,6 +76,59 @@
             <label>Imagen</label>
             <input type="String" id="ImagenAñadir" />
 
+            <fieldset>
+              <legend>Categoria</legend>
+
+              <div>
+                <input
+                  type="radio"
+                  id="Tecnologia"
+                  name="categoria"
+                  value="Tecnologia"
+                />
+                <label for="Tecnologia">Tecnologia</label>
+              </div>
+              <div>
+                <input type="radio" id="Hogar" name="categoria" value="Hogar" />
+                <label for="Hogar">Hogar</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="Academico"
+                  name="categoria"
+                  value="Academico"
+                />
+                <label for="Academico">Academico</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="Literatura"
+                  name="categoria"
+                  value="Literatura"
+                />
+                <label for="Literatura">Literatura</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="Decoracion"
+                  name="categoria"
+                  value="Decoracion"
+                />
+                <label for="Decoracion">Decoracion</label>
+              </div>
+              <div>
+                <input type="radio" id="Otros" name="categoria" value="Otros" />
+                <label for="Otros">Otros</label>
+              </div>
+              <div>
+                <input type="radio" id="Hogar" name="categoria" value="Hogar" />
+                <label for="Hogar">Hogar</label>
+              </div>
+            </fieldset>
             <input
               class="button"
               type="button"
@@ -107,6 +165,60 @@
 
             <label>Imagen del Producto</label>
             <input type="String" id="imagenEditar" name="imagenEditar" />
+
+            <fieldset>
+              <legend>Categoria</legend>
+
+              <div>
+                <input
+                  type="radio"
+                  id="Tecnologia"
+                  name="categoria"
+                  value="Tecnologia"
+                />
+                <label for="Tecnologia">Tecnologia</label>
+              </div>
+              <div>
+                <input type="radio" id="Hogar" name="categoria" value="Hogar" />
+                <label for="Hogar">Hogar</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="Academico"
+                  name="categoria"
+                  value="Academico"
+                />
+                <label for="Academico">Academico</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="Literatura"
+                  name="categoria"
+                  value="Literatura"
+                />
+                <label for="Literatura">Literatura</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="Decoracion"
+                  name="categoria"
+                  value="Decoracion"
+                />
+                <label for="Decoracion">Decoracion</label>
+              </div>
+              <div>
+                <input type="radio" id="Otros" name="categoria" value="Otros" />
+                <label for="Otros">Otros</label>
+              </div>
+              <div>
+                <input type="radio" id="Hogar" name="categoria" value="Hogar" />
+                <label for="Hogar">Hogar</label>
+              </div>
+            </fieldset>
 
             <input
               class="button"

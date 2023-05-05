@@ -4,13 +4,14 @@ const model = mongoose.model;
 
 
 const ProductoSchema = new Schema({
-    nombre:  String,
+    nombre: String,
     descripcion: String,
     precio: Number,
     existencia: String,
     imagen: String,
-    EnCarro: Boolean
-},{
+    categoria: String,
+    nombreUsuario: String
+}, {
     versionKey: false
 });
 

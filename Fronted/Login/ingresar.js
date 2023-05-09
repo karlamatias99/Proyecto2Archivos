@@ -3,7 +3,7 @@ const form2 = document.getElementById('Ingreso');
 
 form.addEventListener('submit', registrar);
 
-
+//Registrar nuevo usuario siempre con el rol "comun"
 function registrar(evento) {
     //Evitar que el formulario envie valores por defecto
     evento.preventDefault();
@@ -28,11 +28,14 @@ function registrar(evento) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
     })
         .then(respuesta => respuesta.json())
-        .then(datos => Ingresar(datos))
-
+        .then(datos => {
+            Ingresar(datos);
+            alert('Registrado con éxito!');
+        })
+        .catch(error => alert(error));
 }
 
 function Ingresar(datos) {
@@ -40,6 +43,7 @@ function Ingresar(datos) {
 
 }
 
+//Form para iniciar sesion
 form2.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -81,49 +85,3 @@ form2.addEventListener('submit', async (event) => {
 
 
 
-
-/*function login(evento) {
-
-    evento.preventDefault();
-
-    let correo = document.getElementById('email').value;
-    let password = document.getElementById('Password').value;
-    let rol = document.getElementById('rol').value;
-
-    const data = {
-        correo: correo,
-        password: password,
-        rol: rol
-    }
-
-    fetch('http://localhost:3000/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-
-    })
-        .then(response => {
-            if (response.ok) {
-                // Si la autenticación es exitosa, redirigir al usuario a la página de inicio
-                console.log(data);
-                if (rol == "Común") {
-                    window.location.href = '../usuario/Vistausuario.html';
-                } else if (rol == "Administrador") {
-                    window.location.href = '../administrador/admin.html';
-                } else {
-                    window.location.href = '../paqueteria/paqueteria.html';
-                }
-
-
-            } else {
-                // Si la autenticación no es exitosa, mostrar un mensaje de error
-                console.log(data);
-                throw new Error('Error al iniciar sesión');
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
-}*/

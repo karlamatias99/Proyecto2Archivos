@@ -1,7 +1,4 @@
 /*Listo los productos que estan ingresados, si los hay */
-
-
-
 const usernameListItem = document.getElementById('username-list-item');
 
 // Obtener el usuario almacenado en el localStorage
@@ -59,10 +56,12 @@ document.getElementById("botonAñadir").addEventListener("click", function (even
                 location.reload();
             } else {
                 console.error('Error al insertar producto');
+                alert('Error al insertar producto');
             }
         })
         .then(datos => {
             Ingresar(datos);
+            alert('Producto registrado con éxito!');
             ver();
         })
 
@@ -85,6 +84,14 @@ function obtenerProducto(idProducto) {
             document.getElementById("precioEditar").value = data.precio;
             document.getElementById("existenciaEditar").value = data.existencia;
             document.getElementById("imagenEditar").value = data.imagen;
+
+            //Mando a llamar el estado del pedido 
+            const opcionElegida = data.categoria;
+            // Encontrar el elemento HTML correspondiente
+            const radioBtn = document.querySelector(`input[name="categoriaEditar"][value="${opcionElegida}"]`);
+
+            // Marcar el botón correspondiente
+            radioBtn.checked = true;
         })
         .catch((error) => console.log(error));
 }
@@ -138,6 +145,7 @@ document.getElementById("botonEditar").addEventListener("click", function (event
         })
         .then(datos => {
             Editar(datos);
+            alert('Producto editado con exito!');
         })
 })
 
@@ -154,9 +162,11 @@ function eliminarProducto(idProducto) {
         .then(response => {
             if (response.ok) {
                 console.log('Producto eliminado correctamente');
+                alert('Producto eliminado con exito!');
                 location.reload();
             } else {
                 console.error('Error al eliminar el producto');
+                alert('Error al eliminar el producto!');
             }
         })
         .catch(error => console.error(error));
@@ -186,20 +196,20 @@ function mostrarProductos(productos) {
     });
 }
 
-/*Funcion para ver los productos en la pagina */
+/*Funcion para ver los productos en la pagina, se mostraran unicamente los ingresados por el usuario logeado */
 function ver() {
     window.onload = async () => {
 
         try {
             const response = await fetch(`http://localhost:3000/api/ver?nombreUsuario=${username}`);
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('La respuesta de la red es incorreca');
             }
             const listaProducto = await response.json();
             //console.log(listaProducto);
             mostrarProductos(listaProducto);
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            console.error('Ocurrio un problema con la solicitud fetch:', error);
         }
     };
 }

@@ -1,4 +1,6 @@
 const Pedidos = require('../Models/Pedidos');
+const moment = require('moment');
+
 
 const IngresoPedidos = async (req, res) => {
     const insertar = new Pedidos({
@@ -8,7 +10,9 @@ const IngresoPedidos = async (req, res) => {
         totalcompra: req.body.totalcompra,
         FechaGeneracion: req.body.FechaGeneracion,
         FechaEntrega: req.body.FechaEntrega,
-        Estado: req.body.Estado
+        Tarjeta: req.body.Tarjeta,
+        Estado: req.body.Estado,
+        perfilUsuario: req.body.perfilUsuario
     });
 
     const RegistrarPedido = await insertar.save();
@@ -17,14 +21,42 @@ const IngresoPedidos = async (req, res) => {
 
 const TraerDatos = async (req, res) => {
     try {
-        const pedido = await Pedidos.findById(req.params.id);
-        res.json(pedido); // Devuelve el producto en formato JSON
+        const pedido = await Pedidos.findById(req.params.id).select('idPedido usuarioPedido direccion telefono totalcompra FechaGeneracion FechaEntrega Estado');
+
+        // Formatear las fechas antes de enviarlas en el resultado JSON
+        const fechaGeneracion = moment(pedido.fechaGeneracion).format('YYYY-MM-DD');
+        const fechaEntrega = moment(pedido.FechaEntrega).format('YYYY-MM-DD');
+
+
+        // Crear un objeto con las propiedades que se quieren enviar en el resultado
+        const resultado = {
+            idPedido: pedido.idPedido,
+            usuarioPedido: pedido.usuarioPedido,
+            direccion: pedido.direccion,
+            telefono: pedido.telefono,
+            totalcompra: pedido.totalcompra,
+            FechaGeneracion: fechaGeneracion,
+            FechaEntrega: fechaEntrega,
+            Estado: pedido.Estado
+        };
+
+        // Enviar el resultado como JSON
+        res.json(resultado);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al buscar el pedido');
     }
 };
 
+
+/* document.getElementById("idPedido").value = data._id;
+            document.getElementById("nombreUsuario").value = data.usuarioPedido;
+            document.getElementById("direccion").value = data.direccion;
+            document.getElementById("telefono").value = data.telefono;
+            document.getElementById("totalCompra").value = data.totalCompra;
+            document.getElementById("FechaGeneracion").value = data.FechaGeneracion;
+            document.getElementById("FechaEntrega").value = data.FechaEntrega;
+            document.getElementById("Estado").value = data.Estado; */
 
 const EditarPedidos = async (req, res) => {
     try {
@@ -57,13 +89,24 @@ const EliminarPedidos = async (req, res) => {
     }
 };
 
+const MostrarPedidosPorUsuario = async (req, res) => {
+    const perfilUsuario = req.query.perfilUsuario;
 
-
-/*Mostrar Pedidos Ingresados*/
-const MostrarPedidos = async (req, res) => {
     try {
-        const pedido = await Pedidos.find();
-        res.json(pedido);
+        const pedidos = await Pedidos.find({ perfilUsuario }).lean();
+        const pedidosConFecha = pedidos.map(pedido => {
+            return {
+                _id: pedido._id,
+                usuarioPedido: pedido.usuarioPedido,
+                direccion: pedido.direccion,
+                telefono: pedido.telefono,
+                totalcompra: pedido.totalcompra,
+                Tarjeta: pedido.Tarjeta,
+                FechaEntrega: pedido.FechaEntrega.toISOString().substring(0, 10),
+                Estado: pedido.Estado
+            };
+        });
+        res.json(pedidosConFecha);
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Error en el servidor');
@@ -71,12 +114,34 @@ const MostrarPedidos = async (req, res) => {
 };
 
 
-
+/*Mostrar Pedidos Ingresados*/
+const MostrarPedidos = async (req, res) => {
+    try {
+        const pedidos = await Pedidos.find();
+        const pedidosFechas = pedidos.map(pedido => {
+            return {
+                _id: pedido._id,
+                usuarioPedido: pedido.usuarioPedido,
+                direccion: pedido.direccion,
+                telefono: pedido.telefono,
+                totalcompra: pedido.totalcompra,
+                FechaGeneracion: pedido.FechaGeneracion.toISOString().substring(0, 10),
+                FechaEntrega: pedido.FechaEntrega.toISOString().substring(0, 10),
+                Estado: pedido.Estado
+            };
+        });
+        res.json(pedidosFechas);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Error en el servidor');
+    }
+};
 
 module.exports = {
     IngresoPedidos: IngresoPedidos,
     TraerDatos: TraerDatos,
     EditarPedidos: EditarPedidos,
     MostrarPedidos: MostrarPedidos,
-    EliminarPedidos: EliminarPedidos 
+    EliminarPedidos: EliminarPedidos,
+    MostrarPedidosPorUsuario: MostrarPedidosPorUsuario
 }

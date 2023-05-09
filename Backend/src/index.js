@@ -38,6 +38,9 @@ async function start() {
 
 start();
 
+app.get('/', (req, res) => {
+    res.redirect('/api/login');
+});
 
 app.use('/api', carritoRoutes);
 app.use('/api', tarjetaRoutes);

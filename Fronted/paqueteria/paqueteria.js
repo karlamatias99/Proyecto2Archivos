@@ -1,4 +1,4 @@
-/*Listo los productos que estan ingresados, si los hay */
+/*Listo los pedidos, si los hay */
 ver();
 
 
@@ -12,19 +12,16 @@ function obtenerPedido(idPedido) {
             document.getElementById("nombreUsuario").value = data.usuarioPedido;
             document.getElementById("direccion").value = data.direccion;
             document.getElementById("telefono").value = data.telefono;
-            document.getElementById("totalCompra").value = data.totalCompra;
+            document.getElementById("totalcompra").value = data.totalcompra;
             document.getElementById("FechaGeneracion").value = data.FechaGeneracion;
             document.getElementById("FechaEntrega").value = data.FechaEntrega;
-            document.getElementById("Tarjeta").value = data.Tarjeta;
-            document.getElementById("Estado").value = data.Estado;
-            /** usuarioPedido: String,
-    direccion: String,
-    telefono: Number,
-    totalcompra: String,
-    FechaGeneracion: Date,
-    FechaEntrega: Date,
-    Tarjeta: Number,
-    Estado: String */
+            //Mando a llamar el estado del pedido 
+            const opcionElegida = data.Estado;
+            // Encontrar el elemento HTML correspondiente
+            const radioBtn = document.querySelector(`input[name="estado"][value="${opcionElegida}"]`);
+
+            // Marcar el botón correspondiente
+            radioBtn.checked = true;
 
         })
         .catch((error) => console.log(error));
@@ -38,8 +35,10 @@ document.getElementById("botonEditar").addEventListener("click", function (event
     const nombreE = document.getElementById("nombreUsuario").value;
     const direccionE = document.getElementById("direccion").value;
     const telefonoE = document.getElementById("telefono").value;
-    const totalCompraE = document.getElementById("totalCompra").value;
-    const FechaEntregaE = document.getElementById("fecha").value;
+    const totalCompraE = document.getElementById("totalcompra").value;
+    const FechaGeneracionE = document.getElementById("FechaGeneracion").value;
+    const FechaEntregaE = document.getElementById("FechaEntrega").value;
+
 
     var botonesDeRadio = document.getElementsByName("estado");
 
@@ -57,7 +56,8 @@ document.getElementById("botonEditar").addEventListener("click", function (event
         nusuarioPedido: nombreE,
         direccion: direccionE,
         telefono: telefonoE,
-        totalCompra: totalCompraE,
+        totalcompra: totalCompraE,
+        FechaGeneracion: FechaGeneracionE,
         FechaEntrega: FechaEntregaE,
         Estado: valorSeleccionado
 
@@ -73,9 +73,11 @@ document.getElementById("botonEditar").addEventListener("click", function (event
             respuesta.json()
             if (respuesta.ok) {
                 console.log('Pedido editado correctamente');
+                alert("Pedido editado Correctamente")
                 location.reload();
             } else {
                 console.error('Error al editar el pedido');
+                alert("Error al editar el pedido")
             }
         })
         .then(datos => {
@@ -96,26 +98,28 @@ function eliminarPedido(idPedido) {
         .then(response => {
             if (response.ok) {
                 console.log('Pedido eliminado correctamente');
+                alert("Pedido eliminado correctamente")
                 location.reload();
             } else {
                 console.error('Error al eliminar el pedido');
+                alert("Error al eliminar el pedido")
             }
         })
         .catch(error => console.error(error));
 }
 
-/*Mostrar Registros de Productos*/
-function mostrarProductos(pedidos) {
+/*Mostrar Registros de Pedidos*/
+function mostrarPedidos(pedidos) {
     let mostraPedidos = document.getElementById('mostrarPedidos')
-    const pedidoEd = document.getElementById('productoEditar')
-    const pedidoEl = document.getElementById('productoEliminar')
     mostraPedidos.innerHTML = ''
     pedidos.forEach(element => {
         mostraPedidos.innerHTML +=
             `<div class="contenedorPedidos">
-              <img src="../imagenes/Pedido.png">
-            
-        <div class="informacion"><p>Codigo: ${element._id}</p><p class="informacion">
+            ${element.Estado === 'En curso'
+                ? '<img src="../imagenes/En Curso.png">'
+                : '<img src="../imagenes/Procesado.png">'
+            }
+        <div class="informacion"><p>Codigo:</p><p>${element._id}</p><p class="informacion">
         <span> Usuario: ${element.usuarioPedido}</span></p><p class="informacion">
         <span>Direccion: ${element.direccion}</span></p><p class="informacion">
         <span>Telefono: ${element.telefono}</span></p> <p class="precio">
@@ -140,13 +144,13 @@ function ver() {
         try {
             const response = await fetch('http://localhost:3000/api/pedidos');
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('La respuesta desde la red no es correcta');
             }
             const listaPedidos = await response.json();
             //console.log(listaProducto);
-            mostrarProductos(listaPedidos);
+            mostrarPedidos(listaPedidos);
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            console.error('Existe un error con la peticion fetch:', error);
         }
     };
 }

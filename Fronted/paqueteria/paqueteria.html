@@ -35,7 +35,7 @@
       <nav>
         <ul>
           <li><a href="usuario.html">Ver Pedidos</a></li>
-          <li><a href="../administrador/admin.html">Ingresos</a></li>
+          <li><a href="">Ingresos</a></li>
           <li><a href="../Login/Login.html">Cerrar Sesion</a></li>
         </ul>
       </nav>
@@ -47,6 +47,7 @@
         <h2>Pedidos</h2>
         <div class="mostrarPedidos" id="mostrarPedidos"></div>
       </div>
+      
       <div class="contenedor">
         <!-- Editar -->
         <div class="editar">
@@ -65,18 +66,14 @@
             <input type="text" id="telefono" name="telefono" disabled="disabled"/>
 
             <label>Total Compra</label>
-            <input type="text" id="totalCompra" name="totalCompra" disabled="disabled"/>
+            <input type="text" id="totalcompra" name="totalcompra" disabled="disabled"/>
 
 
             <label>Fecha Generacion</label>
-            <input type="date" id="fechaGeneracion" name="fechaGeneracion" min="2023-01-01" max="2023-12-31" />
+            <input type="date" id="FechaGeneracion" name="FechaGeneracion" min="2023-01-01" max="2023-12-31" disabled="disabled" />
 
             <label>Fecha Entrega</label>
-            <input type="date" id="FechaGeneracion" name="FechaGeneracion" min="2023-01-01" max="2023-12-31" />
-
-            <label>Tarjeta</label>
-            <input type="date" id="Tarjeta" name="Tarjeta" disabled="disabled"/>
-
+            <input type="date" id="FechaEntrega" name="FechaEntrega" min="2023-01-01" max="2023-12-31" />
             
             <fieldset>  
               <legend>Estado del Pedido</legend>

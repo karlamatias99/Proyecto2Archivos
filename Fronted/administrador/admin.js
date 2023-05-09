@@ -59,12 +59,13 @@ function obtenerUsuario(idUsuario) {
             document.getElementById("apellidoEditar").value = data.apellido;
             document.getElementById("correoEditar").value = data.correo;
             document.getElementById("passwordEditar").value = data.password;
-            //var rolActual = document.querySelector('input[type="radio"][name="rol"]');
-            document.getElementsByName("rol").value = data.rol;
+            //Mando a llamar el estado del pedido 
+            const opcionElegida = data.rol;
+            // Encontrar el elemento HTML correspondiente
+            const radioBtn = document.querySelector(`input[name="rolEditrar"][value="${opcionElegida}"]`);
 
-
-            console.log(idUsuario)
-            console.log(data.rol)
+            // Marcar el botón correspondiente
+            radioBtn.checked = true;
         })
         .catch((error) => console.log(error));
 }

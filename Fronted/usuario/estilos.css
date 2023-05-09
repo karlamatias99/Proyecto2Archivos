@@ -157,6 +157,7 @@ header {
     color: black;
 }
 
+/*Disenio del numero que va arriva del carrito, indicando cuantos productos tenemos en este */
 .diseñoNumero {
     padding: 10px;
     background-color: red;
@@ -276,12 +277,12 @@ header {
 
 .contenedorCompra>button {
     z-index: 1;
+    margin-bottom: -20px;
     background-color: #263143;
     width: 300px;
-    height: 45px;
+    height: 20px;
     border-radius: 10px;
     border: none;
-
     font-size: 17px;
     font-weight: 300;
 }

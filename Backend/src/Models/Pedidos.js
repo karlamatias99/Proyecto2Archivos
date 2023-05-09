@@ -7,11 +7,12 @@ const PedidosSchema = new Schema({
     usuarioPedido: String,
     direccion: String,
     telefono: Number,
-    totalcompra: String,
+    totalcompra: Number,
     FechaGeneracion: Date,
     FechaEntrega: Date,
-    Tarjeta: Number,
-    Estado: String
+    Tarjeta: String,
+    Estado: String,
+    perfilUsuario: String
 },{
     versionKey: false
 });

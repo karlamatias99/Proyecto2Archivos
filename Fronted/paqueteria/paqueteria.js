@@ -16,12 +16,12 @@ function obtenerPedido(idPedido) {
             document.getElementById("FechaGeneracion").value = data.FechaGeneracion;
             document.getElementById("FechaEntrega").value = data.FechaEntrega;
             //Mando a llamar el estado del pedido 
-            const opcionElegida = data.Estado;
+            const opcion = data.Estado;
             // Encontrar el elemento HTML correspondiente
-            const radioBtn = document.querySelector(`input[name="estado"][value="${opcionElegida}"]`);
+            const radioBtnEstado = document.querySelector(`input[name="estado"][value="${opcion}"]`);
 
             // Marcar el botón correspondiente
-            radioBtn.checked = true;
+            radioBtnEstado.checked = true;
 
         })
         .catch((error) => console.log(error));

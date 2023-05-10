@@ -1,6 +1,7 @@
 const Usuario = require('../Models/Usuario');
+const Producto = require('../Models/Producto');
 
-
+//Registrar nuevo usuario
 const IngresoUsuario = async (req, res) => {
     const insertar = new Usuario({
         nombre: req.body.nombre,
@@ -24,7 +25,7 @@ const TraerDatos = async (req, res) => {
     }
 };
 
-
+//Editar registro de un usuario 
 const EditarUsuario = async (req, res) => {
     try {
         const { id } = req.params;
@@ -39,6 +40,7 @@ const EditarUsuario = async (req, res) => {
     }
 };
 
+//Eliminar registro de un usuario
 const EliminarUsuario = async (req, res) => {
     try {
         const idUsuario = req.params.id;
@@ -55,7 +57,7 @@ const EliminarUsuario = async (req, res) => {
     }
 };
 
-
+//Login 
 const LoginUsuario = async (req, res) => {
     const { correo, password, rol } = req.body;
 
@@ -79,8 +81,8 @@ const LoginUsuario = async (req, res) => {
 
 
 
-/*Mostrar Productos Ingresados*/
-const MostrarProductos = async (req, res) => {
+/*Mostrar Usuarios Ingresados*/
+const MostrarUsuarios = async (req, res) => {
     try {
         const usuario = await Usuario.find();
         res.json(usuario);
@@ -91,6 +93,49 @@ const MostrarProductos = async (req, res) => {
 };
 
 
+const TopClientes = async (req, res) => {
+    try {
+        const resultado = await Producto.aggregate([
+            // Agrupar los productos por el cliente propietario
+            {
+                $group: {
+                    _id: "$nombreUsuario",
+                    totalProductos: { $sum: 1 },
+                },
+            },
+            // Ordenar por el número de productos de forma descendente
+            { $sort: { totalProductos: -1 } },
+            // Limitar los resultados a 10
+            { $limit: 10 },
+            // Buscar los detalles del cliente propietario
+            {
+                $lookup: {
+                    from: "usuarios",
+                    localField: "_id",
+                    foreignField: "_id",
+                    as: "nombreUsuario",
+                },
+            },
+            // Deshacer el array del resultado anterior para obtener un objeto de cliente
+            { $unwind: "$nombreUsuario" },
+            // Seleccionar los campos a mostrar
+            {
+                $project: {
+                    _id: "$nombreUsuario._id",
+                    nombre: "$nombreUsuario.nombre",
+                    correo: "$nombreUsuario.correo",
+                    totalProductos: 1,
+                },
+            },
+        ]);
+
+        res.json(resultado);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ mensaje: "Hubo un error en el servidor" });
+    }
+};
+
 
 
 module.exports = {
@@ -98,6 +143,7 @@ module.exports = {
     LoginUsuario: LoginUsuario,
     TraerDatos: TraerDatos,
     EditarUsuario: EditarUsuario,
-    MostrarProductos: MostrarProductos,
-    EliminarUsuario: EliminarUsuario
+    MostrarUsuarios: MostrarUsuarios,
+    EliminarUsuario: EliminarUsuario,
+    TopClientes: TopClientes
 }

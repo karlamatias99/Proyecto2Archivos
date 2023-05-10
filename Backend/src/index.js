@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const usuarioRoutes = require("./routes/usuario.routes");
 const productoRoutes = require("./routes/producto.routes");
-const listaRoutes = require("./routes/lista.routes");
 const carritoRoutes = require("./routes/carrito.routes");
 const pedidoRoutes = require("./routes/pedido.routes");
 const tarjetaRoutes = require("./routes/tarjeta.routes");

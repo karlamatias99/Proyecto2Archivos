@@ -47,52 +47,96 @@
         <h2>Pedidos</h2>
         <div class="mostrarPedidos" id="mostrarPedidos"></div>
       </div>
-      
+
       <div class="contenedor">
         <!-- Editar -->
         <div class="editar">
           <h2>Editar Pedido</h2>
           <form id="form-editar-pedido">
             <label>Codigo Pedido</label>
-            <input type="text" id="idPedido" name="idPedido" disabled="disabled" />
+            <input
+              type="text"
+              id="idPedido"
+              name="idPedido"
+              disabled="disabled"
+            />
 
             <label>Nombre del Usuario</label>
-            <input type="text" id="nombreUsuario" name="nombreUsuario" disabled="disabled"/>
+            <input
+              type="text"
+              id="nombreUsuario"
+              name="nombreUsuario"
+              disabled="disabled"
+            />
 
             <label>Direccion</label>
-            <input type="text" id="direccion" name="direccion" disabled="disabled"/>
+            <input
+              type="text"
+              id="direccion"
+              name="direccion"
+              disabled="disabled"
+            />
 
             <label>Telefono</label>
-            <input type="text" id="telefono" name="telefono" disabled="disabled"/>
+            <input
+              type="text"
+              id="telefono"
+              name="telefono"
+              disabled="disabled"
+            />
 
             <label>Total Compra</label>
-            <input type="text" id="totalcompra" name="totalcompra" disabled="disabled"/>
-
+            <input
+              type="text"
+              id="totalcompra"
+              name="totalcompra"
+              disabled="disabled"
+            />
 
             <label>Fecha Generacion</label>
-            <input type="date" id="FechaGeneracion" name="FechaGeneracion" min="2023-01-01" max="2023-12-31" disabled="disabled" />
+            <input
+              type="date"
+              id="FechaGeneracion"
+              name="FechaGeneracion"
+              min="2023-01-01"
+              max="2023-12-31"
+              disabled="disabled"
+            />
 
             <label>Fecha Entrega</label>
-            <input type="date" id="FechaEntrega" name="FechaEntrega" min="2023-01-01" max="2023-12-31" />
-            
-            <fieldset>  
+            <input
+              type="date"
+              id="FechaEntrega"
+              name="FechaEntrega"
+              min="2023-01-01"
+              max="2023-12-31"
+            />
+
+            <fieldset>
               <legend>Estado del Pedido</legend>
 
               <div>
-                <input type="radio" id="EnCurso" name="estado" value="EnCurso" />
-                <label for="EnCurso">En Curso</label>
+                <input
+                  type="radio"
+                  id="En curso"
+                  name="estado"
+                  value="En curso"
+                />
+                <label for="En curso">En curso</label>
               </div>
 
               <div>
                 <input
                   type="radio"
-                  id="Completado"
+                  id="completado"
                   name="estado"
-                  value="Completado"
+                  value="completado"
                 />
-                <label for="Completado">Completado</label>
+                <label for="completado">Completado</label>
               </div>
+
             </fieldset>
+
             <input
               class="button"
               type="button"

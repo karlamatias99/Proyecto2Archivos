@@ -1,5 +1,6 @@
 const Tarjeta = require('../Models/Tarjeta');
 
+//agregar nueva tarjeta 
 const addTarjeta = async (req, res) => {
     const insertar = new Tarjeta({
         numeroTarjeta: req.body.numeroTarjeta,
@@ -13,6 +14,7 @@ const addTarjeta = async (req, res) => {
     res.json(RegistrarTarjeta);
 }
 
+//editar tarjeta s
 const editarTarjeta = async (req, res) => {
     try {
         const { id } = req.params;
@@ -27,6 +29,7 @@ const editarTarjeta = async (req, res) => {
     }
 };
 
+//Eliminar tarjeta 
 const EliminarTarjeta = async (req, res) => {
     try {
         const idTarjeta = req.params.id;
@@ -43,10 +46,12 @@ const EliminarTarjeta = async (req, res) => {
     }
 };
 
+
+//obtener los datos de la tarjeta desde la base de datos 
 const TraerDatos = async (req, res) => {
     try {
         const tarjeta = await Tarjeta.findById(req.params.id);
-        res.json(tarjeta); // Devuelve el producto en formato JSON
+        res.json(tarjeta); 
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al buscar el metodo de pago');

@@ -1,0 +1,515 @@
+db.usuarios.insertMany(
+  [
+  {
+    "nombre": "Karla",
+    "apellido": "Matías",
+    "correo": "ejemplo2@gmail.com",
+    "password": "98745",
+    "rol": "Común"
+  },
+  {
+    "nombre": "Juan Pablo",
+    "apellido": "Perez",
+    "correo": "jp@gmail.com",
+    "password": "123",
+    "rol": "Comun"
+  },
+  {
+    "nombre": "Marta",
+    "apellido": "Gomez",
+    "correo": "ejemplo@gmail.com",
+    "password": "456",
+    "rol": "Común"
+  },
+  {
+    "nombre": "ejemplo",
+    "apellido": "ejemplo",
+    "correo": "ejemplo02@gmail.com",
+    "password": "123",
+    "rol": "Común"
+  },
+  {
+    "nombre": "registro2",
+    "apellido": "registro",
+    "correo": "registro2@gmail.com",
+    "password": "789",
+    "rol": "Común"
+  },
+  {
+    "nombre": "Teresa",
+    "apellido": "García",
+    "correo": "ejemplo3@gmail.com",
+    "password": "159753",
+    "rol": "Administrador"
+  },
+  {
+    "nombre": "Maria",
+    "apellido": "de León",
+    "correo": "ejemplo8@gmail.com",
+    "password": "753",
+    "rol": "Paqueteria"
+  },
+  {
+    "nombre": "Noemi",
+    "apellido": "Reyes",
+    "correo": "noemi_r@gmail.com",
+    "password": "123",
+    "rol": "Paqueteria"
+  }
+] 
+)
+
+
+db.productos.insertMany(
+  [
+  {
+    "nombre": "Computadora",
+    "descripcion": "Computadora ACER NITRO 5",
+    "precio": 10000,
+    "existencia": "1",
+    "imagen": "https://www.max.com.gt/media/catalog/product/cache/40cff66e483d5074b1ae49efef994171/N/H/NHQB9AL009_1_19122022101313.jpg",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Teléfono inteligente Samsung Galaxy S21",
+    "descripcion": "Un teléfono con pantalla de alta resolución, cámara de alta calidad y una gran capacidad de almacenamiento.",
+    "precio": 8500,
+    "existencia": "1",
+    "imagen": "https://www.motistore.com/images/thumbs/0010730_set-de-cuadros-canvas-little-princess_375.png",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Smartwatch Apple Watch Series 6",
+    "descripcion": "Un reloj inteligente con pantalla retina, medición de la frecuencia cardíaca y una gran cantidad de aplicaciones.",
+    "precio": 6500,
+    "existencia": "2",
+    "imagen": "https://m.media-amazon.com/images/I/71sFZcRAtzL._AC_UF1000,1000_QL80_.jpg",
+    "categoria": "tecnologia",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Juego de té",
+    "descripcion": "Un juego de té es un producto elegante y sofisticado que puede ser un regalo perfecto para los amantes del té y el café",
+    "precio": 150,
+    "existencia": "1",
+    "imagen": "https://m.media-amazon.com/images/I/71KXAhzy-tL.jpg",
+    "categoria": "Hogar",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Cuadros Decorativos ",
+    "descripcion": "Cuadros decorativos de 20*20",
+    "precio": 50,
+    "existencia": "30",
+    "imagen": "https://www.motistore.com/images/thumbs/0010730_set-de-cuadros-canvas-little-princess_375.png",
+    "categoria": "Decoracion",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Mochila de senderismo",
+    "descripcion": "Esta mochila es perfecta para largas caminatas por la montaña. Con varios compartimentos y un diseño ergonómico, podrás llevar todo lo que necesitas de forma cómoda.",
+    "precio": 850,
+    "existencia": "1",
+    "imagen": "https://imagenes.elpais.com/resizer/78KCAQWkes3RFxfw0hCoyvbz500=/1960x1470/cloudfront-eu-central-1.images.arcpublishing.com/prisa/LIRLIXCGGFF47HDPJQZPBET3OU.png",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Lámpara de mesa",
+    "descripcion": "Esta lámpara de mesa es elegante y funcional, perfecta para iluminar cualquier espacio de tu hogar.",
+    "precio": 150,
+    "existencia": "2",
+    "imagen": "https://www.tuco.com.gt/uploadimg/productos/001502164.jpg",
+    "categoria": "Decoracion",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Cámara GoPro HERO9 Black",
+    "descripcion": "Una cámara de acción con estabilización de imagen, resistencia al agua y capacidad de grabar en 5K",
+    "precio": 1000,
+    "existencia": "3",
+    "imagen": "https://www.max.com.gt/media/catalog/product/c/h/chdhx901.jpg",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Altavoz inteligente Amazon Echo Dot:",
+    "descripcion": "Un altavoz con asistente de voz integrado ",
+    "precio": 1100,"existencia": "1",
+    "imagen": "https: //www.imeqmo.com/web/image/product.image/23690/image?unique=97a03cf",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Juego de toallas de baño",
+    "descripcion": "Este juego de toallas de baño es suave y absorbente, perfecto para secarte después de una ducha relajante.",
+    "precio": 175,
+    "existencia": "2",
+    "imagen": "https://images.ecestaticos.com/OKXChhYyZBGs98Nmm49wFu6cdsM=/2x95:1000x712/1440x810/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F89f%2F6fd%2F9e7%2F89f6fd9e7deb18783bc0eaf8162ff29b.jpg",
+    "categoria": "Hogar",
+    "nombreUsuario": "ejemplo2@gmail.com"
+  },
+  {
+    "nombre": "Libros Juegos del Hambre",
+    "descripcion": "Los cuatro juntos.(No se venden por separado)",
+    "precio": 1000,
+    "existencia": "1",
+    "imagen": "https://silverlibros.com/wp-content/uploads/2022/06/9788427225183-paquete-juegos-del-hambre.jpg",
+    "categoria": "Literatura",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Plancha ",
+    "descripcion": "Plancha de cabello Rosthal",
+    "precio": 150,
+    "existencia": "5",
+    "imagen": "https://cemacogt.vtexassets.com/arquivos/ids/347097/831143_1.jpg?v=638175820400930000",
+    "categoria": "Hogar",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Cepillo de limpieza facial ",
+    "descripcion": "Cepillo de limpieza facial marca CALA",
+    "precio": 87,
+    "existencia": "5",
+    "imagen": "https://cdn.kemik.gt/2022/02/28734-CALA-1200X1200-1-526x526.jpg",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Plancha de Ropa ",
+    "descripcion": "Plancha de Ropa marca Oster",
+    "precio": 250,
+    "existencia": "1",
+    "imagen": "https://siman.vtexassets.com/arquivos/ids/1922710/103545382.jpg?v=637733834641670000",
+    "categoria": "Hogar",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Cámara Sony Alpha a7 III ",
+    "descripcion": "Camara de fotografia marca Sony",
+    "precio": 5500,
+    "existencia": "1",
+    "imagen": "https://i.blogs.es/cb03f3/sony_a7iii_prueba-000/840_560.jpg",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Tableta Apple iPad Pro ",
+    "descripcion": "Tableta marca Apple",
+    "precio": 2000,
+    "existencia": "1",
+    "imagen": "https://www.apple.com/v/ipad-pro/al/images/meta/ipad-pro_overview__glcw458o4byq_og.png?202302130906",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Chaqueta de cuero ",
+    "descripcion": "Chaqueta de mujer de cuero talla S",
+    "precio": 260,
+    "existencia": "1",
+    "imagen": "https://m.media-amazon.com/images/I/61U5oQTTUuS._AC_UY1000_.jpg",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Macetas de Barro ",
+    "descripcion": "Macetas para tu hogar, de barro, varios tamaños",
+    "precio": 150,
+    "existencia": "30",
+    "imagen": "https://alfarerosdejuanatrigo.com/wp-content/uploads/2022/01/IMGP0337.jpg",
+    "categoria": "Hogar",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Juego de Mesa UNO ",
+    "descripcion": "Juego de mesa UNO",
+    "precio": 50,
+    "existencia": "2",
+    "imagen": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/uno-1670591796.jpg",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Televisor Smart Samsung ",
+    "descripcion": "Televisor smart de 32 pulgadas",
+    "precio": 5600,
+    "existencia": "1",
+    "imagen": "https://www.max.com.gt/media/catalog/product/u/n/un32t4300_2.jpg",
+    "categoria": "Hogar",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Libros Juegos del Hambre",
+    "descripcion": "Libros de los juegos del hambre, se venden por separado o en paquete",
+    "precio": 1000,
+    "existencia": "1",
+    "imagen": "https://silverlibros.com/wp-content/uploads/2022/06/9788427225183-paquete-juegos-del-hambre.jpg",
+    "categoria": "Literatura",
+    "nombreUsuario": "jp@gmail.com"
+  },
+  {
+    "nombre": "Plancha ",
+    "descripcion": "Plancha de cabello Remington",
+    "precio": 230,
+    "existencia": "2",
+    "imagen": "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1635091467-51UCvqHZjqL._SL500_.jpg?crop=1xw:1.00xh;center,top&resize=480:*",
+    "categoria": "Hogar",
+    "nombreUsuario": "jp@gmail.com"
+  },
+  {
+    "nombre": "Cepillo para el cabello ",
+    "descripcion": "Cepillo electrico para el cabello, marca Revlon",
+    "precio": 599,
+    "existencia": "1",
+    "imagen": "https://cemacogt.vtexassets.com/arquivos/ids/615510-800-800?v=638175788966200000&width=800&height=800&aspect=true",
+    "categoria": "Otros",
+    "nombreUsuario": "jp@gmail.com"
+  },
+  {
+    "nombre": "Bicicleta ",
+    "descripcion": "Bicicleta color azul, marca Next para adulto",
+    "precio": 1700,
+    "existencia": "1",
+    "imagen": "https://walmartgt.vtexassets.com/arquivos/ids/323610/Bicicleta-Next-Unisex-Para-Adulto-26-1-49417.jpg?v=638047390135100000",
+    "categoria": "Otros",
+    "nombreUsuario": "jp@gmail.com"
+  },
+  {
+    "nombre": "Cámara Sony Alpha a7 III ",
+    "descripcion": "Camara de fotografia marca Sony",
+    "precio": 4500,
+    "existencia": "1",
+    "imagen": "https://i.blogs.es/cb03f3/sony_a7iii_prueba-000/840_560.jpg",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "jp@gmail.com"
+  },
+  {
+    "nombre": "Tableta Apple iPad Pro ",
+    "descripcion": "Tableta marca Apple",
+    "precio": 2600,
+    "existencia": "1",
+    "imagen": "https://www.apple.com/v/ipad-pro/al/images/meta/ipad-pro_overview__glcw458o4byq_og.png?202302130906",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "jp@gmail.com"
+  },
+  {
+    "nombre": "Chaqueta de lona ",
+    "descripcion": "Chaqueta de mujer de lona talla M y XL",
+    "precio": 150,
+    "existencia": "1",
+    "imagen": "https://static.wixstatic.com/media/988051_5f11b990c7814b3f9ce78ec2447049fc~mv2.jpg/v1/fill/w_1201,h_1500,al_c,q_85/988051_5f11b990c7814b3f9ce78ec2447049fc~mv2.jpg",
+    "categoria": "Otros",
+    "nombreUsuario": "jp@gmail.com"
+  },
+  {
+    "nombre": "Playeras para hombre ",
+    "descripcion": "Playeras para hombre, varios colores y tallas",
+    "precio": 150,
+    "existencia": "10",
+    "imagen": "https://cdn.shopify.com/s/files/1/0073/0647/7679/products/image_b9221ec0-b91c-4d50-9086-4d422739e5c9.jpg?v=1648654864",
+    "categoria": "Otros",
+    "nombreUsuario": "jp@gmail.com"
+  },
+  {
+    "nombre": "Balon Mundial 2022 ",
+    "descripcion": "Balon oficial de la final del mundial 2022",
+    "precio": 590,
+    "existencia": "1",
+    "imagen": "https://masaireweb.com/wp-content/uploads/2022/12/351A8450-scaled.jpg",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Televisor Smart Samsung ",
+    "descripcion": "Televisor smart de 43 pulgadas",
+    "precio": 6500,
+    "existencia": "1",
+    "imagen": "https://elektragt.vtexassets.com/arquivos/ids/179040-800-auto?v=637771020007070000&width=800&height=auto&aspect=true",
+    "categoria": "Hogar",
+    "nombreUsuario": "ejemplo@gmail.com"
+  },
+  {
+    "nombre": "Libros El señor de los Anillos",
+    "descripcion": "Libros del señor de los anillos, se venden por separado o en paquete",
+    "precio": 1000,
+    "existencia": "1",
+    "imagen": "https://i.linio.com/p/84e38cd5c82b60bc0696ad3f59d5e25e-product.jpg",
+    "categoria": "Literatura",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Microondas ",
+    "descripcion": "Microondas marca Oster",
+    "precio": 960,
+    "existencia": "2",
+    "imagen": "https://www.max.com.gt/media/catalog/product/o/g/ogmaf2903.jpg",
+    "categoria": "Hogar",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Cepillo para el cabello ",
+    "descripcion": "Cepillo electrico para el cabello, marca Rosthal",
+    "precio": 230,
+    "existencia": "1",
+    "imagen": "https://cemacogt.vtexassets.com/arquivos/ids/524522-800-800?v=638175814232370000&width=800&height=800&aspect=true",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Bicicleta ",
+    "descripcion": "Bicicleta color rojo, marca Maya Tour para niño",
+    "precio": 1700,
+    "existencia": "1",
+    "imagen": "https://agenciaswayonline.com/wp-content/uploads/2019/09/BIM15.jpg",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Cámara Canon ",
+    "descripcion": "Camara de fotografia marca Canon Rebel T6",
+    "precio": 3600,
+    "existencia": "1",
+    "imagen": "https://www.shopper.com.gt/wp-content/uploads/2020/05/1458920281000_img_606748.jpg",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Tableta Samsung ",
+    "descripcion": "Tableta Galaxy Tab S6 Lite",
+    "precio": 2499,
+    "existencia": "1",
+    "imagen": "https://www.max.com.gt/media/catalog/product/cache/40cff66e483d5074b1ae49efef994171/s/m/smp613nza.jpg",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Blusas para mujer ",
+    "descripcion": "Blusa de mujer de tela talla S, M y L",
+    "precio": 150,
+    "existencia": "1",
+    "imagen": "https://ae01.alicdn.com/kf/H0eab016dd9184c52947f372fad5de719I/Tops-y-Blusas-para-mujer-Blusa-de-manga-larga-de-las-mujeres-Blusas-lazo-Collar-albaricoque.jpg_.webp",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Playeras para hombre ",
+    "descripcion": "Playeras para hombre, varios colores y tallas",
+    "precio": 180,
+    "existencia": "6",
+    "imagen": "https://cdn.shopify.com/s/files/1/0073/0647/7679/products/image_b9221ec0-b91c-4d50-9086-4d422739e5c9.jpg?v=1648654864",
+    "categoria": "Otros",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Libros de Juego de tronos ",
+    "descripcion": "Saga de libros Juego de Tronos (No se vende por separado)",
+    "precio": 2500,
+    "existencia": "1",
+    "imagen": "https://resources.claroshop.com/imagenes-sanborns-ii/1200/7503026435274.jpg",
+    "categoria": "Literatura",
+    "nombreUsuario": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Celular",
+    "descripcion": "Celular IPHONE 14 ",
+    "precio": 12500,
+    "existencia": "3",
+    "imagen": "https://cdn.shopify.com/s/files/1/0101/2522/products/iPhone_14_Midnight_iShop_1_1200x.jpg?v=1679605688",
+    "categoria": "Tecnologia",
+    "nombreUsuario:": "ejemplo02@gmail.com"
+  },
+  {
+    "nombre": "Libros Harry Potter",
+    "descripcion": "Libros Harry Potter, se venden por separado o en paquete",
+    "precio": 1850,
+    "existencia": "1",
+    "imagen": "https://tienda.sophosenlinea.com/imagenes/9788418/978841817319.GIF",
+    "categoria": "Literatura",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Computadora",
+    "descripcion": "Computadora marca Lenovo Cor I5",
+    "precio": 4500,
+    "existencia": "1",
+    "imagen": "https://www.lenovo.com/medias/lenovo-laptops-thinkbook-16-gen-4-intel-hero.png?context=bWFzdGVyfHJvb3R8MzQ1OTM2fGltYWdlL3BuZ3xoMjEvaGZkLzEzMjU1MTI1OTkxNDU0LnBuZ3xlMGJjMDAyZjIzYzczYmY0YTY3NTlmODcwMDJjZTBhMzg5M2VlMjFlNTNlZWJkZDMyNDA3MTdlNjc3NjhhZWY5",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Celular",
+    "descripcion": "Celular IPHONE 14 ",
+    "precio": 9800,
+    "existencia": "3",
+    "imagen": "https://cdn.shopify.com/s/files/1/0101/2522/products/iPhone_14_Midnight_iShop_1_1200x.jpg?v=1679605688",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Smartwatch Apple Watch Series 6",
+    "descripcion": "Un reloj inteligente con pantalla retina, medición de la frecuencia cardíaca y una gran cantidad de aplicaciones.",
+    "precio": 5200,
+    "existencia": "1",
+    "imagen": "https://m.media-amazon.com/images/I/71sFZcRAtzL._AC_UF1000,1000_QL80_.jpg",
+    "categoria": "tecnologia",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Cámara Canon ",
+    "descripcion": "Camara de fotografia marca Canon Rebel T8",
+    "precio": 5600,
+    "existencia": "1",
+    "imagen": "https://www.shopper.com.gt/wp-content/uploads/2020/05/1458920281000_img_606748.jpg",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Tableta Samsung ",
+    "descripcion": "Tableta Galaxy Tab S3 Lite",
+    "precio": 1500,
+    "existencia": "1",
+    "imagen": "https://www.max.com.gt/media/catalog/product/cache/40cff66e483d5074b1ae49efef994171/s/m/smp613nza.jpg",
+    "categoria": "Tecnologia",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Juego de Sartenes ",
+    "descripcion": "Juego de 3 sartenes de aluminio",
+    "precio": 203,
+    "existencia": "1",
+    "imagen": "https://cemacogt.vtexassets.com/arquivos/ids/354593-800-800?v=638175723788800000&width=800&height=800&aspect=true",
+    "categoria": "Hogar",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Lámpara de mesa",
+    "descripcion": "Esta lámpara de mesa es elegante y funcional, perfecta para iluminar cualquier espacio de tu hogar.",
+    "precio": 260,
+    "existencia": "2",
+    "imagen": "https://www.tuco.com.gt/uploadimg/productos/001502164.jpg",
+    "categoria": "Decoracion",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Libros de Juego de tronos ",
+    "descripcion": "Libros de Juego de tronos, se venden por separado",
+    "precio": 650,
+    "existencia": "1",
+    "imagen": "https://resources.claroshop.com/imagenes-sanborns-ii/1200/7503026435274.jpg",
+    "categoria": "Literatura",
+    "nombreUsuario": "registro2@gmail.com"
+  },
+  {
+    "nombre": "Teléfono inteligente Samsung Galaxy S21",
+    "descripcion": "Un teléfono con pantalla de alta resolución, cámara de alta calidad y una gran capacidad de almacenamiento.",
+    "precio": 9600,
+    "existencia": "1",
+    "imagen": "https://www.motistore.com/images/thumbs/0010730_set-de-cuadros-canvas-little-princess_375.png",
+    "categoria": "Tecnologia",
+    "nombreUsuario:": "registro2@gmail.com"
+  }
+] 
+)

@@ -1,5 +1,6 @@
 const Producto = require('../Models/Producto');
 
+//Ingreso de un nuevo producto 
 const IngresoProducto = async (req, res) => {
     const agregar = new Producto({
         nombre: req.body.nombre,
@@ -15,7 +16,7 @@ const IngresoProducto = async (req, res) => {
     res.json(RegistrarProducto);
 }
 
-
+//obtentgo datos desde la base de datos 
 const TraerDatos = async (req, res) => {
     try {
         const producto = await Producto.findById(req.params.id); // Busca el producto en MongoDB por su ID
@@ -27,6 +28,7 @@ const TraerDatos = async (req, res) => {
 };
 
 
+//edito un producto 
 const EditarProducto = async (req, res) => {
     try {
         const { id } = req.params;
@@ -41,6 +43,7 @@ const EditarProducto = async (req, res) => {
     }
 };
 
+//eliminar producto 
 const EliminarProducto = async (req, res) => {
     try {
         const idProducto = req.params.id;
@@ -58,7 +61,7 @@ const EliminarProducto = async (req, res) => {
 };
 
 
-/*Mostrar Productos Ingresados*/
+/*Mostrar Productos Ingresados por algun usuario en especifico */
 const MostrarProductos = async (req, res) => {
     const nombreUsuario = req.query.nombreUsuario;
 
@@ -71,6 +74,7 @@ const MostrarProductos = async (req, res) => {
     }
 };
 
+//mostrar todos los productos que se han ingresado y estan a la venta 
 const MostrarProductosVenta = async (req, res) => {
     try {
         const productos = await Producto.find(); // Busca todos los productos en la base de datos
@@ -81,6 +85,7 @@ const MostrarProductosVenta = async (req, res) => {
     }
 };
 
+//Buscar algun producto, en base a su nombre 
 const buscarProductos = async (req, res) => {
     const nombreProducto = req.query.nombreProducto;
     const regex = new RegExp(nombreProducto, 'i');

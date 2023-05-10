@@ -1,7 +1,7 @@
 const Pedidos = require('../Models/Pedidos');
 const moment = require('moment');
 
-
+//Ingresar un nuevo pdido 
 const IngresoPedidos = async (req, res) => {
     const insertar = new Pedidos({
         usuarioPedido: req.body.usuarioPedido,
@@ -19,9 +19,10 @@ const IngresoPedidos = async (req, res) => {
     res.json(RegistrarPedido);
 }
 
+//traer informacion de la base de datos 
 const TraerDatos = async (req, res) => {
     try {
-        const pedido = await Pedidos.findById(req.params.id).select('idPedido usuarioPedido direccion telefono totalcompra FechaGeneracion FechaEntrega Estado');
+        const pedido = await Pedidos.findById(req.params.id);
 
         // Formatear las fechas antes de enviarlas en el resultado JSON
         const fechaGeneracion = moment(pedido.fechaGeneracion).format('YYYY-MM-DD');
@@ -30,7 +31,7 @@ const TraerDatos = async (req, res) => {
 
         // Crear un objeto con las propiedades que se quieren enviar en el resultado
         const resultado = {
-            idPedido: pedido.idPedido,
+            _id: pedido._id,
             usuarioPedido: pedido.usuarioPedido,
             direccion: pedido.direccion,
             telefono: pedido.telefono,
@@ -49,15 +50,8 @@ const TraerDatos = async (req, res) => {
 };
 
 
-/* document.getElementById("idPedido").value = data._id;
-            document.getElementById("nombreUsuario").value = data.usuarioPedido;
-            document.getElementById("direccion").value = data.direccion;
-            document.getElementById("telefono").value = data.telefono;
-            document.getElementById("totalCompra").value = data.totalCompra;
-            document.getElementById("FechaGeneracion").value = data.FechaGeneracion;
-            document.getElementById("FechaEntrega").value = data.FechaEntrega;
-            document.getElementById("Estado").value = data.Estado; */
 
+//Editar el estado y la fecha de entrega de un pedido
 const EditarPedidos = async (req, res) => {
     try {
         const { id } = req.params;
@@ -73,6 +67,7 @@ const EditarPedidos = async (req, res) => {
     }
 };
 
+//Eliminar pedido 
 const EliminarPedidos = async (req, res) => {
     try {
         const idPedidos = req.params.id;
@@ -89,6 +84,7 @@ const EliminarPedidos = async (req, res) => {
     }
 };
 
+//Mostrar los pedidos, dependiendo de un usuario en especifico 
 const MostrarPedidosPorUsuario = async (req, res) => {
     const perfilUsuario = req.query.perfilUsuario;
 

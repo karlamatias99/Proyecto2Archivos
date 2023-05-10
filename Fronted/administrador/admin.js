@@ -111,9 +111,11 @@ document.getElementById("botonEditar").addEventListener("click", function (event
             respuesta.json()
             if (respuesta.ok) {
                 console.log('Usuario editado correctamente');
+                alert("Usuario editado correctamente");
                 location.reload();
             } else {
                 console.error('Error al editar el usuario');
+                alert("Error al editar el usuario");
             }
         })
         .then(datos => {
@@ -135,9 +137,11 @@ function eliminarUsuario(idUsuario) {
         .then(response => {
             if (response.ok) {
                 console.log('Usuario eliminado correctamente');
+                alert("Usuario eliminado correctamente!");
                 location.reload();
             } else {
                 console.error('Error al eliminar el usuario');
+                alert("Error al eliminar al usuario");
             }
         })
         .catch(error => console.error(error));
@@ -163,69 +167,23 @@ function mostrarUsuarios(usuarios) {
     });
 }
 
-/*Funcion para ver los productos en la pagina */
+/*Funcion para ver los usuarios en la pagina */
 function ver() {
     window.onload = async () => {
 
         try {
             const response = await fetch('http://localhost:3000/api/usuarios');
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('Error en la red');
             }
             const listaUsuarios = await response.json();
             //console.log(listaProducto);
             mostrarUsuarios(listaUsuarios);
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            console.error('Error en la solicitud fetch:', error);
         }
     };
 }
 
 
 
-
-/*function login(evento) {
-
-    evento.preventDefault();
-
-    let correo = document.getElementById('email').value;
-    let password = document.getElementById('Password').value;
-    let rol = document.getElementById('rol').value;
-
-    const data = {
-        correo: correo,
-        password: password,
-        rol: rol
-    }
-
-    fetch('http://localhost:3000/api/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-
-    })
-        .then(response => {
-            if (response.ok) {
-                // Si la autenticación es exitosa, redirigir al usuario a la página de inicio
-                console.log(data);
-                if (rol == "Común") {
-                    window.location.href = '../usuario/Vistausuario.html';
-                } else if (rol == "Administrador") {
-                    window.location.href = '../administrador/admin.html';
-                } else {
-                    window.location.href = '../paqueteria/paqueteria.html';
-                }
-
-
-            } else {
-                // Si la autenticación no es exitosa, mostrar un mensaje de error
-                console.log(data);
-                throw new Error('Error al iniciar sesión');
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
-}*/
